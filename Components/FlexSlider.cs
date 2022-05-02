@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UserInterfaceComponents.Class;
 
-namespace UserInterfaceComponents
+namespace UserInterfaceComponents.Components
 {
     public class FlexSlider : Slider
     {

@@ -5,14 +5,13 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using UserInterfaceComponents.Class;
 
-namespace UserInterfaceComponents
+namespace UserInterfaceComponents.Components
 {
     public class Modal : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI title, message;
         [SerializeField] private Image image;
         [SerializeField] private ButtonTextAction cancelButton, confirmButton;
-        private Canvas _canvas;
         private Queue<ModalProps> _modalQueue = new Queue<ModalProps>();
         private ModalProps _modalProps;
 
@@ -21,7 +20,6 @@ namespace UserInterfaceComponents
         private void Awake()
         {
             Instance = this;
-            _canvas = GetComponent<Canvas>();
             cancelButton.Init();
             confirmButton.Init();
             Hide();
@@ -38,14 +36,14 @@ namespace UserInterfaceComponents
 
         private void Hide()
         {
-            _canvas.enabled = false;
+            gameObject.SetActive(false);
             HandleQueue();
         }
 
         private void HandleQueue()
         {
             if (_modalQueue.Count == 0) return;
-            if (_canvas.enabled) return;
+            if (gameObject.activeSelf) return;
 
             ResetModal();
 
@@ -83,7 +81,7 @@ namespace UserInterfaceComponents
                 confirmButton.SetActive(true);
             }
 
-            _canvas.enabled = true;
+            gameObject.SetActive(true);
         }
 
         public Modal Init()

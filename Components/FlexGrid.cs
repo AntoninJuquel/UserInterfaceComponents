@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace UserInterfaceComponents
+namespace UserInterfaceComponents.Components
 {
     public class FlexGrid : LayoutGroup
     {

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UserInterfaceComponents.Class;
 
-namespace UserInterfaceComponents
+namespace UserInterfaceComponents.Components
 {
     [ExecuteInEditMode]
     public class ProgressBar : MonoBehaviour
