@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace UserInterfaceComponents.Components
 {
@@ -7,13 +8,19 @@ namespace UserInterfaceComponents.Components
     {
         [SerializeField] private string title;
         [TextArea(5, 10)] [SerializeField] private string message;
+        private GraphicRaycaster _canvasRaycaster;
+
+        private void Awake()
+        {
+            _canvasRaycaster = transform.root.GetComponent<GraphicRaycaster>();
+        }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
             Tooltip.Instance
                 .SetTitle(title)
                 .SetMessage(message)
-                .Show();
+                .Show(gameObject, _canvasRaycaster);
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -26,7 +33,7 @@ namespace UserInterfaceComponents.Components
             Tooltip.Instance
                 .SetTitle(title)
                 .SetMessage(message)
-                .Show();
+                .Show(gameObject, _canvasRaycaster);
         }
 
         private void OnMouseExit()
