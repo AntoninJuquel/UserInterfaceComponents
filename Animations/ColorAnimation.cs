@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace UserInterfaceComponents.Animations
 {
-    [CreateAssetMenu(menuName = "Animation/Color")]
+    [CreateAssetMenu(menuName = "User Interface Components/Animation/Color")]
     public class ColorAnimation : FlexAnimation
     {
         public Color from, to;
