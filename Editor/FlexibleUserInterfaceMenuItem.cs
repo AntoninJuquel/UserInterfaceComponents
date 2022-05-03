@@ -5,12 +5,18 @@ namespace UserInterfaceComponents.Editor
 {
     public static class FlexibleUserInterfaceMenuItem
     {
+        public static void AddGameObjectFrom(string path)
+        {
+            var obj = Object.Instantiate(Resources.Load<GameObject>(path), Selection.activeTransform, false);
+            obj.name = path;
+            Undo.RegisterCreatedObjectUndo(obj, $"Create {path}");
+            Selection.activeGameObject = obj;
+        }
+
         [MenuItem("GameObject/FlexibleUserInterface/Linear Progress Bar")]
         public static void AddLinearProgressBar()
         {
-            var obj = Object.Instantiate(Resources.Load<GameObject>("Linear Progress Bar"), Selection.activeTransform, false);
-            Undo.RegisterCreatedObjectUndo(obj, $"Create {obj.name}");
-            Selection.activeGameObject = obj;
+            AddGameObjectFrom("Linear Progress Bar");
         }
 
         [MenuItem("GameObject/FlexibleUserInterface/Linear Progress Bar", true)]
@@ -23,9 +29,7 @@ namespace UserInterfaceComponents.Editor
         [MenuItem("GameObject/FlexibleUserInterface/Radial Progress Bar")]
         public static void AddRadialProgressBar()
         {
-            var obj = Object.Instantiate(Resources.Load<GameObject>("Radial Progress Bar"), Selection.activeTransform, false);
-            Undo.RegisterCreatedObjectUndo(obj, $"Create {obj.name}");
-            Selection.activeGameObject = obj;
+            AddGameObjectFrom("Radial Progress Bar");
         }
 
         [MenuItem("GameObject/FlexibleUserInterface/Radial Progress Bar", true)]
@@ -38,9 +42,7 @@ namespace UserInterfaceComponents.Editor
         [MenuItem("GameObject/FlexibleUserInterface/Slider")]
         public static void AddSlider()
         {
-            var obj = Object.Instantiate(Resources.Load<GameObject>("Slider"), Selection.activeTransform, false);
-            Undo.RegisterCreatedObjectUndo(obj, $"Create {obj.name}");
-            Selection.activeGameObject = obj;
+            AddGameObjectFrom("Slider");
         }
 
         [MenuItem("GameObject/FlexibleUserInterface/Slider", true)]
@@ -53,17 +55,13 @@ namespace UserInterfaceComponents.Editor
         [MenuItem("GameObject/FlexibleUserInterface/Modal", false, -10)]
         public static void AddModal()
         {
-            var obj = Object.Instantiate(Resources.Load<GameObject>("Modal"), Selection.activeTransform, false);
-            Undo.RegisterCreatedObjectUndo(obj, $"Create {obj.name}");
-            Selection.activeGameObject = obj;
+            AddGameObjectFrom("Modal");
         }
 
         [MenuItem("GameObject/FlexibleUserInterface/Tooltip", false, -10)]
         public static void AddTooltip()
         {
-            var obj = Object.Instantiate(Resources.Load<GameObject>("Tooltip"), Selection.activeTransform, false);
-            Undo.RegisterCreatedObjectUndo(obj, $"Create {obj.name}");
-            Selection.activeGameObject = obj;
+            AddGameObjectFrom("Tooltip");
         }
     }
 }
