@@ -49,13 +49,13 @@ namespace UserInterfaceComponents.Components
 
             var modal = _modalQueue.Dequeue();
 
-            if (modal.Title != default)
+            if (!string.IsNullOrEmpty(modal.Title))
             {
                 title.text = modal.Title;
                 title.gameObject.SetActive(true);
             }
 
-            if (modal.Message != default)
+            if (!string.IsNullOrEmpty(modal.Message))
             {
                 message.text = modal.Message;
                 message.gameObject.SetActive(true);
@@ -67,14 +67,14 @@ namespace UserInterfaceComponents.Components
                 image.gameObject.SetActive(true);
             }
 
-            if (modal.CancelText != default)
+            if (!string.IsNullOrEmpty(modal.CancelText))
             {
                 cancelButton.SetText(modal.CancelText);
                 cancelButton.SetActions(modal.CancelActions);
                 cancelButton.SetActive(true);
             }
 
-            if (modal.ConfirmText != default)
+            if (!string.IsNullOrEmpty(modal.ConfirmText))
             {
                 confirmButton.SetText(modal.ConfirmText);
                 confirmButton.SetActions(modal.ConfirmActions);

@@ -57,5 +57,13 @@ namespace UserInterfaceComponents.Editor
             Undo.RegisterCreatedObjectUndo(obj, $"Create {obj.name}");
             Selection.activeGameObject = obj;
         }
+
+        [MenuItem("GameObject/FlexibleUserInterface/Tooltip", false, -10)]
+        public static void AddTooltip()
+        {
+            var obj = Object.Instantiate(Resources.Load<GameObject>("Tooltip"), Selection.activeTransform, false);
+            Undo.RegisterCreatedObjectUndo(obj, $"Create {obj.name}");
+            Selection.activeGameObject = obj;
+        }
     }
 }
