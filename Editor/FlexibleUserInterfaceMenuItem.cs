@@ -5,7 +5,7 @@ namespace UserInterfaceComponents.Editor
 {
     public static class FlexibleUserInterfaceMenuItem
     {
-        public static void AddGameObjectFrom(string path)
+        private static void AddGameObjectFrom(string path)
         {
             var obj = Object.Instantiate(Resources.Load<GameObject>(path), Selection.activeTransform, false);
             obj.name = path;
